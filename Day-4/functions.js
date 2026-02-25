@@ -1,12 +1,12 @@
 //? Arrow Function - Basic Syntax
 
-//* Normal Function Expression : 
+//* Normal Function Expression :
 
 // const add = function(a, b){
 //     return Number(a) + Number(b)
 // }
 
-//* Arrow Function 
+//* Arrow Function
 
 // const add = (a, b) =>{
 //     return Number(a) + Number(b)
@@ -14,11 +14,11 @@
 
 //? Shortcut Syntax
 
-//* 1. Single line return 
+//* 1. Single line return
 
 // const add = (a, b) => a + b; //* If is only expression so no need of return statement
 
-//* 2. Single Parameter 
+//* 2. Single Parameter
 
 // const square = num => num ** 2;
 
@@ -26,14 +26,12 @@
 
 // const greet = () => "Hello"
 
-
-//? Here we start the question practice 
+//? Here we start the question practice
 
 //* Ex. Convert this function into an arrow function:
 //! function add(a, b){
 //!     return a + b;
 //! }
-
 
 // const add = (a, b) => a + b;
 // console.log(add(2, 4))
@@ -69,10 +67,12 @@
 // let currentYear = () => "2026"
 // console.log(currentYear())
 
+// let currentYear = () => new Date().getFullYear();
+
 //* Q6. Write an arrow function getMax that returns the largest of two numbers using ternary.
 
 // let getMax = (a, b) => {
-//     return Number(a) > Number(b) ? `${a}` : `${b}`
+//     return Number(a) > Number(b) ? Number(a) : Number(b);
 // }
 
 // console.log(getMax(4,9))
@@ -96,7 +96,7 @@
 //* otherwise return 0
 
 // let squareIfPositive = (num)=>{
-   
+
 //     num = Number(num)
 //     return num > 0 ? num ** 2 : 0
 // }
@@ -107,11 +107,62 @@
 //* "Medium" if 10–50
 //* "Large" if > 50
 
-// let checkRange = (num) =>{
+// let checkRange = num => {
+//   num = Number(num);
+//   return num < 10
+//     ? "Small"
+//     : num <= 50
+//     ? "Medium"
+//     : "Large";
+// };
 
-//     num = Number(num)
-//     return num < 10 ? "small" : num > 10 && num < 50 ? "Medium" : "Large"
-    
+//* Q11. Write an arrow function that returns an object:
+//* {name: "Rajat", role: "Developer"}
+
+// const obj = () => {
+
+//     return {name:"Rajat Saini", age: 24, email: "rajatsaini@gamil.com"}
 // }
 
-// console.log(checkRange(33))
+// console.log(obj());
+
+//* Q12. Create an arrow function createUser that takes name and age and returns:
+//* { name: <name>, age: <age> }
+
+// const createUser = (name, age ) => {
+//   return { name: name, age: age };
+// };
+
+// console.log(createUser("Rajat Saini", 24));
+
+//* Q13. Write an arrow function inside setTimeout that logs:
+//* "Executed after delay"
+
+// setTimeout(() => {
+//   console.log("Executed after delay");
+// }, 1000);
+
+//* Q14. Use arrow function with array:
+//* [1,2,3,4,5]
+
+// let arr = [1, 2, 3, 4, 5];
+
+// const newArr = arr.map((num) => {
+//   return num ** 2;
+// });
+
+// console.log(newArr);
+
+//* Q15. (Thinking Level)
+//* Create an arrow function that returns another arrow function.
+//* const add = outer(5);
+//* add(3) → 8
+
+// const fun = (a) => {
+//   return (b) => {
+//     return a + b;
+//   };
+// };
+
+// const add = fun(5);
+// console.log(add(3));
