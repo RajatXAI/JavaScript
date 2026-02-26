@@ -1,168 +1,145 @@
-//? Arrow Function - Basic Syntax
+//? Callback Function
 
-//* Normal Function Expression :
+//* Q1. Write a function execute that takes a function as a parameter and calls it.
 
-// const add = function(a, b){
-//     return Number(a) + Number(b)
+// function execute(cb){
+//     cb();
 // }
 
-//* Arrow Function
-
-// const add = (a, b) =>{
-//     return Number(a) + Number(b)
-// }
-
-//? Shortcut Syntax
-
-//* 1. Single line return
-
-// const add = (a, b) => a + b; //* If is only expression so no need of return statement
-
-//* 2. Single Parameter
-
-// const square = num => num ** 2;
-
-//* No parameter
-
-// const greet = () => "Hello"
-
-//? Here we start the question practice
-
-//* Ex. Convert this function into an arrow function:
-//! function add(a, b){
-//!     return a + b;
-//! }
-
-// const add = (a, b) => a + b;
-// console.log(add(2, 4))
-
-//* Q1. Write an arrow function double that returns double of a number.
-
-// let double = num => num * 2;
-// console.log(double(4))
-
-//* Q2. Create an arrow function isPositive that returns true if a number is greater than 0.
-
-// let isPositive = num =>{
-//     return Number(num) > 0
-// }
-
-// console.log(isPositive(4))
-
-//* Q3. Write an arrow function getLength that returns the length of a string.
-
-// let getLength = str => str.length
-// console.log(getLength("Rajat"))
-
-//* Q4. Create an arrow function multiply that takes three numbers and returns their product.
-
-// let multiply = (a, b, c) => {
-//     return Number(a) * Number(b) * Number(c)
-// }
-
-// console.log(multiply(2,3,4))
-
-//* Q5. Write an arrow function with no parameters that returns the current year.
-
-// let currentYear = () => "2026"
-// console.log(currentYear())
-
-// let currentYear = () => new Date().getFullYear();
-
-//* Q6. Write an arrow function getMax that returns the largest of two numbers using ternary.
-
-// let getMax = (a, b) => {
-//     return Number(a) > Number(b) ? Number(a) : Number(b);
-// }
-
-// console.log(getMax(4,9))
-
-//* Q7. Create an arrow function isEvenOrOdd that returns:
-//* "Even" if number is even
-//* "Odd" otherwise
-
-// let isEvenOrOdd = num => Number(num) % 2 === 0 ? `Even` : `Odd`
-// console.log(isEvenOrOdd(45))
-
-//* Q8. Write an arrow function greetUser that returns:
-//* "Good Morning, <name>" if name is provided
-//* "Good Morning, Guest" otherwise
-
-// const greetUser = name => name ? `Good Morning, ${name}` : "Good Morning, Guest";
-// console.log(greetUser())
-
-//* Q9. Create an arrow function squareIfPositive:
-//* return square if number > 0
-//* otherwise return 0
-
-// let squareIfPositive = (num)=>{
-
-//     num = Number(num)
-//     return num > 0 ? num ** 2 : 0
-// }
-// console.log(squareIfPositive(2))
-
-//* Q10. Write an arrow function checkRange:
-//* return "Small" if number < 10
-//* "Medium" if 10–50
-//* "Large" if > 50
-
-// let checkRange = num => {
-//   num = Number(num);
-//   return num < 10
-//     ? "Small"
-//     : num <= 50
-//     ? "Medium"
-//     : "Large";
-// };
-
-//* Q11. Write an arrow function that returns an object:
-//* {name: "Rajat", role: "Developer"}
-
-// const obj = () => {
-
-//     return {name:"Rajat Saini", age: 24, email: "rajatsaini@gamil.com"}
-// }
-
-// console.log(obj());
-
-//* Q12. Create an arrow function createUser that takes name and age and returns:
-//* { name: <name>, age: <age> }
-
-// const createUser = (name, age ) => {
-//   return { name: name, age: age };
-// };
-
-// console.log(createUser("Rajat Saini", 24));
-
-//* Q13. Write an arrow function inside setTimeout that logs:
-//* "Executed after delay"
-
-// setTimeout(() => {
-//   console.log("Executed after delay");
-// }, 1000);
-
-//* Q14. Use arrow function with array:
-//* [1,2,3,4,5]
-
-// let arr = [1, 2, 3, 4, 5];
-
-// const newArr = arr.map((num) => {
-//   return num ** 2;
+// execute(function(){
+//     console.log("Executed")
 // });
 
-// console.log(newArr);
+//* Q2. Create a function calculate that takes three parameters:
+//* two numbers
+//* one callback function
+//* The callback decides the operation.
 
-//* Q15. (Thinking Level)
-//* Create an arrow function that returns another arrow function.
-//* const add = outer(5);
-//* add(3) → 8
+// function calculate(a, b, operation){
+//     operation(Number(a), Number(b))
+// }
 
-// const fun = (a) => {
-//   return (b) => {
-//     return a + b;
-//   };
-// };
+// calculate(4, 5, function(a, b){
+//     console.log(a + b)
+// })
 
-// const add = fun(5);
-// console.log(add(3));
+//* Q3. Write a function greetUser that takes name and callback.
+//* Callback should modify the name before printing.
+
+// function greetUser(name, callback){
+//     name = "Saloni Saini"
+//     callback(name);
+// }
+
+// greetUser("Rajat", function(modifyName){
+//     console.log(modifyName)
+// })
+
+//* Q4. Use forEach with an arrow callback to print squares of numbers in [1,2,3,4].
+
+// let arr = [1,2,3,4]
+// arr.forEach((val)=>{
+//     console.log(val ** 2)
+// })
+
+//* Q5. Write a function runTwice that takes a callback and executes it two times.
+
+// function runTwice(callback){
+//     callback();
+//     callback();
+// }
+
+// runTwice(function(){
+//     console.log("Execute")
+// })
+
+//* Q6. Create a function greet that takes a name and a callback.
+//* The callback should transform the name before printing it.
+//* Example idea:
+//* original: "rajat"
+//* callback makes it uppercase
+
+// function greet(name, callback){
+//     callback(name.toUpperCase());
+// }
+
+// greet("Rajat Saini", function(uppercase){
+//     console.log(uppercase)
+// })
+
+//* Q7. Write a function applyOperation that takes:
+//* two numbers
+//* one callback
+//* Return the result of the callback.
+
+// function applyOperation(a, b, callback){
+//     callback(Number(a), Number(b));
+// }
+
+// applyOperation(4,5, function(x, y){
+//     console.log( x ** y)
+// })
+
+//* Q9. Use rest parameter to accept any number of scores and return the total.
+
+// function getScore(...scores){
+//     let total = 0;
+//     scores.forEach(function(val){
+//         total = total + val
+//     })
+
+//     return total
+// }
+
+// let sum = getScore(1,2,3,4,5,6)
+
+// console.log(sum)
+
+//* Q10. Fix the funtion with early return
+//* function checkAge(age){
+//*     if(age < 18){
+//*         console.log("Too young")
+//*     }else{
+//*         console.log("Allowed")
+//*     }
+//* }
+
+// const checkAge = (age) => age < 18 ? "Too young" : "Allowed";
+// console.log(checkAge(20))
+
+//* Q11. Create a function processArray that takes:
+//* an array
+//* a callback
+//* Apply the callback to each element using a loop (not map).
+
+// let num = [1, 2, 3, 4, 5];
+
+// function processArray(arr, callback) {
+//   let result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     result.push(callback(arr[i]));
+//   }
+//   return result;
+// }
+
+// let squared = processArray(num, function (num) {
+//   return num * num;
+// });
+
+// console.log(squared);
+
+
+
+//* Q13. Create your own version of map:
+//* Function name: CustomMap
+//* It should take array + callback and return a new transformed array.
+
+// let arr = [1, 2, 3, 4];
+// function customMap(arr, callback) {
+//   callback();
+// }
+
+// customMap(arr, function (newArr) {
+//   console.log(newArr);
+// });
+
