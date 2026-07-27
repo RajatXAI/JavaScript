@@ -126,10 +126,26 @@
 
 // console.log("India", ...countries)
 
-//* Q17. Clone this array properly  (not by reference):
+// * Q17. Clone this array properly  (not by reference):
 
 // let arr = [1, 2, 3, 4, 5]
 
 // let arr1 = [...arr]
 
 // console.log(arr1)
+
+
+
+let a = 10 
+let b = 20 
+
+console.log(a)
+
+function greet(){
+
+    console.log("Hello")
+}
+
+greet() 
+
+console.log(b)
